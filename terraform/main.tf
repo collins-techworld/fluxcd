@@ -18,6 +18,10 @@ resource "kubernetes_secret" "flux_git_secret" {
     password = base64encode(var.github_token)
     url      = base64encode(var.github_url)
   }
+
+  depends_on = [
+    helm_release.flux_operator
+  ]
 }
 
 resource "kubernetes_manifest" "flux_instance" {
