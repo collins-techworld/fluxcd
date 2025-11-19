@@ -3,6 +3,9 @@ resource "helm_release" "flux_operator" {
   chart            = "oci://ghcr.io/controlplaneio-fluxcd/charts/flux-operator"
   namespace        = "flux-system"
   create_namespace = true
+  atomic = true
+  cleanup_on_fail = true
+
 }
 
 resource "kubernetes_secret" "flux_git_secret" {
