@@ -19,7 +19,6 @@ resource "kubernetes_secret" "flux_git_secret" {
   data = {
     username = base64encode("git")
     password = base64encode(var.github_token)
-    url      = base64encode(var.github_url)
   }
 
   depends_on = [
