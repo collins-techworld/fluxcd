@@ -89,6 +89,6 @@ resource "kubernetes_manifest" "flux_instance" {
 
   depends_on = [
     helm_release.flux_operator,
-    kubernetes_secret.ghcr_pull_secret
+    kubernetes_secret.flux_git_secret
   ]
 }
